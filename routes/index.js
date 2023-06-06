@@ -29,7 +29,7 @@ router.post('/signin', celebrate({
 router.post('/signout', logout);
 router.use('/users', auth, userRouter);
 router.use('/movies', auth, movieRouter);
-router.all('*', (req, res, next) => {
+router.all('*', auth, (req, res, next) => {
   next(new NotFoundError('Страница не существует'));
 });
 
