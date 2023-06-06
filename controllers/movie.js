@@ -37,13 +37,11 @@ module.exports.deleteMovie = (req, res, next) => {
       }
       if (movie.owner.toString() !== owner) {
         throw new ConflictError('Невозможно удалить не свой фильм');
-      } else {
-        Movie.findByIdAndDelete(_id)
-          .then((deletedMovie) => {
-            res.status(200).send({ data: deletedMovie });
-          })
-          .catch(next);
       }
+      movie.deleteOne();
+    })
+    .then((movie) => {
+      res.status(200).send(movie);
     })
     .catch(next);
 };

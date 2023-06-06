@@ -26,19 +26,7 @@ module.exports = ((err, req, res, next) => {
     });
   }
 
-  if (err instanceof UnauthorizedError) {
-    return res.status(err.statusCode).send({
-      message: err.message,
-    });
-  }
-
-  if (err instanceof ForbiddenError) {
-    return res.status(err.statusCode).send({
-      message: err.message,
-    });
-  }
-
-  if (err instanceof NotFoundError) {
+  if (err instanceof UnauthorizedError || ForbiddenError || NotFoundError) {
     return res.status(err.statusCode).send({
       message: err.message,
     });
