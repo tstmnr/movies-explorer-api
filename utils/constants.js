@@ -1,8 +1,8 @@
 const ALLOWED_HOST = [
   'https://tstmnr.diploma.nomoredomains.rocks',
   'http://tstmnr.diploma.nomoredomains.rocks',
-  'https://51.250.17.79',
-  'http://51.250.17.79',
+  'https://158.160.13.228',
+  'http://158.160.13.228',
   'https://localhost:3000',
   'http://localhost:3000',
 ];
