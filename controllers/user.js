@@ -25,10 +25,12 @@ module.exports.login = (req, res, next) => {
       const { NODE_ENV, JWT_SECRET } = process.env;
 
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'secret-key', { expiresIn: '7d' });
-      res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true, sameSite: true });
-      const data = user.toObject();
-      delete data.password;
-      res.status(200).send(data);
+      res.cookie('jwt', token, {
+        maxAge: 3600000 * 24 * 7,
+        httpOnly: true,
+        sameSite: true,
+      });
+      res.status(200).send(user);
     })
     .catch(next);
 };
