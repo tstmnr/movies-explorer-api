@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const celebrateErrors = require('celebrate').errors;
 require('dotenv').config();
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, DEFAULT_MONGO_URL } = process.env;
 
 // импортируем middlewares
 const cors = require('./middlewares/cors');
@@ -18,7 +18,7 @@ const rateLimiter = require('./middlewares/rateLimiter');
 
 // импортируем все остальное
 const router = require('./routes/index');
-const { MONGO_URL } = require('./utils/constants')
+const { MONGO_URL } = require('./utils/constants');
 
 console.log(MONGO_URL);
 
@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // коннектимся к базе Mongo
-mongoose.connect(MONGO_URL)
+mongoose.connect(DEFAULT_MONGO_URL || MONGO_URL)
   .then(() => {
     console.log('Успешное подключение к базе');
   })
