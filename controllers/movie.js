@@ -1,10 +1,11 @@
-const Movie = require('../models/movie');
-
 const {
   ValidationError,
   DocumentNotFoundError,
   CastError,
 } = require('mongoose').Error;
+
+const Movie = require('../models/movie');
+
 const ForbiddenError = require('../errors/ForbiddenError');
 const NotFoundError = require('../errors/NotFoundError');
 const BadRequest = require('../errors/BadRequest');

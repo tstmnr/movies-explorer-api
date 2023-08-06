@@ -1,8 +1,9 @@
+const { ValidationError } = require('mongoose').Error;
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-const { ValidationError } = require('mongoose').Error;
 const BadRequest = require('../errors/BadRequest');
 const NotFoundError = require('../errors/NotFoundError');
 const ConflictError = require('../errors/ConflictError');
@@ -59,7 +60,7 @@ module.exports.logout = (req, res) => {
     httpOnly: true,
     sameSite: true,
   });
-  res.status(200).send(SIGNOUT_MESSAGE);
+  res.status(200).send({ message: SIGNOUT_MESSAGE });
 };
 
 module.exports.getUserInfo = (req, res, next) => {
