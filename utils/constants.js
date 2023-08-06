@@ -9,8 +9,6 @@ const ALLOWED_HOST = [
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
-const DEFAULT_DATABASE = 'mongodb://localhost:27017/bitfilmsdb';
-
 const MOVIE_BAD_DATA_MESSAGE = 'Переданы некоректные данные при создании карточки';
 const MOVIE_NOT_FOUND_MESSAGE = 'Фильм не найден';
 const MOVIE_FORBIDDEN_MESSAGE = 'Нельзя удалить фильм созданный не вами';

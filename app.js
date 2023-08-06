@@ -18,7 +18,6 @@ const rateLimiter = require('./middlewares/rateLimiter');
 
 // импортируем все остальное
 const router = require('./routes/index');
-const DEFAULT_DATABASE = require('./utils/constants');
 
 const app = express();
 
@@ -31,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // коннектимся к базе Mongo
-mongoose.connect(MONGO_URL || DEFAULT_DATABASE)
+mongoose.connect(MONGO_URL)
   .then(() => {
     console.log('Успешное подключение к базе');
   })
