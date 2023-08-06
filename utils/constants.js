@@ -9,6 +9,8 @@ const ALLOWED_HOST = [
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
+const MONGO_URL = "mongodb://localhost:27017/bitfilmsdb";
+
 const MOVIE_BAD_DATA_MESSAGE = 'Переданы некоректные данные при создании карточки';
 const MOVIE_NOT_FOUND_MESSAGE = 'Фильм не найден';
 const MOVIE_FORBIDDEN_MESSAGE = 'Нельзя удалить фильм созданный не вами';
@@ -25,6 +27,7 @@ const TOKEN_MESSAGE = 'Неверный токен';
 module.exports = {
   ALLOWED_HOST,
   DEFAULT_ALLOWED_METHODS,
+  MONGO_URL,
   MOVIE_BAD_DATA_MESSAGE,
   MOVIE_NOT_FOUND_MESSAGE,
   MOVIE_FORBIDDEN_MESSAGE,
