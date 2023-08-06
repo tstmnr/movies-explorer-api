@@ -5,8 +5,7 @@ const UnauthorizedError = require('../errors/UnauthorizedError');
 const {
   AUTH_MESSAGE,
   TOKEN_MESSAGE,
- } = require('../utils/constants');
-
+} = require('../utils/constants');
 
 module.exports = (req, res, next) => {
   const cookie = req.cookies;
